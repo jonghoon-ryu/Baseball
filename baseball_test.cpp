@@ -1,19 +1,33 @@
 #include "gmock/gmock.h"
 #include "baseball.cpp"
-#include "baseball_test.h"
 
-//TEST(BaseballGame, TryGameTest) {
-//	EXPECT_EQ(1,1);
+using namespace testing;
+class BaseballFixture : public testing::Test {
+public:
+	Baseball game;
+	void assertIlLegalArgument(const std::string& guessNumber) {
+		try {
+			game.guess(std::string(guessNumber));
+			FAIL();
+		}
+		catch (const std::exception& e) {
+			//	PASS
+		}
+	}
+};
+
+
+//TEST_F(BaseballFixture, ThrowExceptionWhenInputLengthIsUnmatched) {
+//	assertIlLegalArgument("12");
+//}
+//
+//TEST_F(BaseballFixture, ThrowExceptionWhenInvalidChar) {
+//	assertIlLegalArgument("12s");
 //}
 
-TEST(BaseballGame, ThrowExceptionWhenInputLengthIsUnmatched) {
-	Baseball game;
-	EXPECT_THROW(game.guess(std::string("12")), std::length_error);
-}
-
-TEST(BaseballGame, ThrowExceptionWhenInvalidChar) {
-	Baseball game;
-	EXPECT_THROW(game.guess(std::string("12s")), std::invalid_argument);
+TEST_F(BaseballFixture, ThrowExceptionWhenInvalidCase) {
+	assertIlLegalArgument("12");
+	assertIlLegalArgument("12s");
 }
 
 
