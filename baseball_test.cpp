@@ -11,6 +11,37 @@ TEST(BaseballGame, ThrowExceptionWhenInputLengthIsUnmatched) {
 	EXPECT_THROW(game.guess(std::string("12")), std::length_error);
 }
 
+TEST(BaseballGame, ThrowExceptionWhenInvalidChar) {
+	Baseball game;
+	EXPECT_THROW(game.guess(std::string("12s")), std::invalid_argument);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //using namespace testing;
 //class PrimeFixture : public Test {
 //public:
