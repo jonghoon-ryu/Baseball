@@ -28,6 +28,7 @@ public:
 TEST_F(BaseballFixture, ThrowExceptionWhenInvalidCase) {
 	assertIlLegalArgument("12");
 	assertIlLegalArgument("12s");
+	assertIlLegalArgument("121");
 }
 
 
