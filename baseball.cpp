@@ -5,6 +5,8 @@
 class Baseball{
 public:
 	void guess(const std::string& string) {
-		throw std::length_error("Must be 3 digits");
+		if (string.length() != 3) {
+			throw std::length_error("Must be 3 digits");
+		}
 	}
 };
