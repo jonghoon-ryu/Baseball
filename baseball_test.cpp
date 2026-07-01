@@ -1,12 +1,15 @@
 #include "gmock/gmock.h"
 #include "baseball.cpp"
+#include "baseball_test.h"
 
+//TEST(BaseballGame, TryGameTest) {
+//	EXPECT_EQ(1,1);
+//}
 
-TEST(BaseballGame, TryGameTest) {
-	EXPECT_EQ(1,1);
+TEST(BaseballGame, ThrowExceptionWhenInputLengthIsUnmatched) {
+	Baseball game;
+	EXPECT_THROW(game.guess(std::string("12")), std::length_error);
 }
-
-
 
 //using namespace testing;
 //class PrimeFixture : public Test {
